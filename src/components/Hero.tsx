@@ -11,15 +11,35 @@ export function Hero() {
       id="hero"
       className="relative pt-24 sm:pt-28 lg:pt-32 pb-16 sm:pb-24 overflow-hidden text-[var(--color-text)]"
     >
-      {/* Backdrop — Pavel using NeuroVIZR (the iconic Upper Aeon lifestyle shot) */}
+      {/* Backdrop video — the Upper Aeon brand reel (matches their .com hero).
+          Falls back to the Pavel/NeuroVIZR still as poster so we still get
+          a visual on reduced-motion / data-saver / failed-load contexts. */}
       <div aria-hidden className="absolute inset-0 pointer-events-none">
+        <video
+          src="/hero-bg.mp4"
+          poster="/images/hero-pavel-vizr.png"
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className="absolute inset-0 h-full w-full object-cover object-[55%_30%] opacity-[0.28] mix-blend-luminosity motion-reduce:hidden"
+        />
+        {/* Reduced-motion fallback — Pavel still */}
         <Image
           src="/images/hero-pavel-vizr.png"
           alt=""
           fill
           priority
-          className="object-cover object-[60%_30%] sm:object-[55%_25%] opacity-[0.18] mix-blend-luminosity"
+          className="object-cover object-[60%_30%] sm:object-[55%_25%] opacity-[0.18] mix-blend-luminosity hidden motion-reduce:block"
         />
+      </div>
+
+      {/* Animated orbs — slow, large, drifting violet + cyan blooms */}
+      <div aria-hidden className="absolute inset-0 pointer-events-none overflow-hidden">
+        <span className="orb orb-violet absolute -top-32 -left-32 w-[36rem] h-[36rem] rounded-full" />
+        <span className="orb orb-cyan absolute top-1/3 -right-40 w-[32rem] h-[32rem] rounded-full" />
+        <span className="orb orb-magenta absolute -bottom-40 left-1/4 w-[30rem] h-[30rem] rounded-full" />
       </div>
 
       {/* Aurora gradient wash */}
@@ -28,10 +48,10 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none aurora-violet"
       />
 
-      {/* Starfield twinkles */}
+      {/* Drifting starfield twinkles */}
       <div
         aria-hidden
-        className="absolute inset-0 pointer-events-none starfield opacity-50"
+        className="absolute inset-0 pointer-events-none starfield drift opacity-60"
       />
 
       {/* Base navy fade so text always reads */}
@@ -40,13 +60,23 @@ export function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           background:
-            "linear-gradient(180deg, rgba(2,14,44,0.55) 0%, rgba(2,14,44,0.78) 60%, rgba(2,14,44,0.92) 100%)",
+            "linear-gradient(180deg, rgba(2,14,44,0.50) 0%, rgba(2,14,44,0.72) 60%, rgba(2,14,44,0.92) 100%)",
+        }}
+      />
+
+      {/* Top-edge scanline accent — that festival-laser energy */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 top-0 h-px pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, rgba(115,84,230,0.0) 15%, rgba(156,132,240,0.85) 50%, rgba(115,84,230,0.0) 85%, transparent 100%)",
         }}
       />
 
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
         {/* Left: copy */}
-        <div className="lg:col-span-7 lg:pt-6">
+        <div className="lg:col-span-7 lg:pt-6 text-center lg:text-left">
           <Reveal variant="up">
             <span className="inline-flex items-center gap-2 glow-pill rounded-full px-3.5 py-1.5 text-[10px] font-semibold uppercase tracking-[0.24em] text-[var(--color-violet-light)]">
               <span className="w-1.5 h-1.5 rounded-full bg-[var(--color-violet-light)] animate-pulse" />
@@ -57,20 +87,20 @@ export function Hero() {
           <Reveal variant="up" delay={80}>
             <h1 className="mt-6 text-4xl sm:text-5xl lg:text-[3.85rem] xl:text-[4.25rem] font-semibold leading-[1.02] tracking-tight text-white">
               Beyond Biohacking{" "}
-              <span className="bg-clip-text text-transparent bg-[linear-gradient(115deg,#d6b87a_10%,#ead9ad_55%,#9c84f0_95%)]">
+              <span className="aurum-glow bg-clip-text text-transparent bg-[linear-gradient(115deg,#d6b87a_0%,#ead9ad_30%,#9c84f0_70%,#ff4dd5_100%)] bg-[length:200%_100%]">
                 Conference 2026
               </span>
             </h1>
           </Reveal>
 
           <Reveal variant="up" delay={140}>
-            <p className="mt-4 text-xl sm:text-2xl text-white/85 leading-snug max-w-2xl font-light">
+            <p className="mt-4 text-xl sm:text-2xl text-white/85 leading-snug max-w-2xl mx-auto lg:mx-0 font-light">
               The Ultimate Nervous System Reset Experience.
             </p>
           </Reveal>
 
           <Reveal variant="up" delay={200}>
-            <p className="mt-5 text-base sm:text-lg text-[var(--color-text-muted)] max-w-2xl leading-relaxed">
+            <p className="mt-5 text-base sm:text-lg text-[var(--color-text-muted)] max-w-2xl mx-auto lg:mx-0 leading-relaxed">
               Experience the future of human optimization at{" "}
               <span className="text-white font-medium">{BOOTH_LOCATOR}</span>.
               For 5 to 15 minutes, your body enters a deeply restorative state
@@ -81,7 +111,7 @@ export function Hero() {
           </Reveal>
 
           <Reveal variant="up" delay={260}>
-            <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-7 gap-y-3 max-w-xl">
+            <ul className="mt-8 grid grid-cols-1 sm:grid-cols-2 gap-x-7 gap-y-3 max-w-xl mx-auto lg:mx-0 text-left">
               {[
                 "10-minute nervous system reset",
                 "Hosted by Pavel Aeon",
@@ -92,7 +122,7 @@ export function Hero() {
                   key={line}
                   className="flex items-start gap-2.5 text-white text-[14px] sm:text-[15px] font-light"
                 >
-                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-aurum)] shrink-0" />
+                  <span className="mt-1.5 w-1.5 h-1.5 rounded-full bg-[var(--color-aurum)] shrink-0 animate-pulse-soft" />
                   <span>{line}</span>
                 </li>
               ))}
@@ -100,7 +130,7 @@ export function Hero() {
           </Reveal>
 
           <Reveal variant="up" delay={340}>
-            <div className="mt-10 flex flex-wrap items-center justify-start gap-3">
+            <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-3">
               <a href="#form" className="btn-primary text-[12px] sm:text-[13px]">
                 Book Your Reset Session
                 <svg
@@ -150,7 +180,7 @@ export function Hero() {
           </Reveal>
 
           <Reveal variant="up" delay={400}>
-            <div className="mt-10 flex flex-wrap items-center gap-x-7 gap-y-3 text-[12px] uppercase tracking-[0.2em] text-[var(--color-text-dim)]">
+            <div className="mt-10 flex flex-wrap items-center justify-center lg:justify-start gap-x-7 gap-y-3 text-[12px] uppercase tracking-[0.2em] text-[var(--color-text-dim)]">
               <span>Dave Asprey · &ldquo;My go-to reset.&rdquo;</span>
               <span aria-hidden className="hidden sm:block w-px h-3 bg-[var(--color-border)]" />
               <span>Ben Greenfield · &ldquo;Game changer.&rdquo;</span>
@@ -199,6 +229,16 @@ export function Hero() {
           </Reveal>
         </div>
       </div>
+
+      {/* Bottom-edge scanline accent */}
+      <div
+        aria-hidden
+        className="absolute inset-x-0 bottom-0 h-px pointer-events-none"
+        style={{
+          background:
+            "linear-gradient(90deg, transparent 0%, rgba(214,184,122,0.0) 15%, rgba(214,184,122,0.6) 50%, rgba(214,184,122,0.0) 85%, transparent 100%)",
+        }}
+      />
     </section>
   );
 }

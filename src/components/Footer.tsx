@@ -15,7 +15,7 @@ export function Footer() {
         }}
       />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
-        <div className="flex flex-col gap-3">
+        <div className="flex flex-col items-start gap-3">
           <Logo className="h-10" />
           <p className="text-[13px] text-[var(--color-text-muted)] max-w-md leading-relaxed font-light">
             Visit Upper Aeon at the {BOOTH_LOCATOR.toLowerCase()} during{" "}

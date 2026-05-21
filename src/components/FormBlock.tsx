@@ -12,9 +12,9 @@ export function FormBlock() {
     >
       <div aria-hidden className="absolute inset-0 aurora-violet pointer-events-none" />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6 grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-        <div className="lg:col-span-6">
+        <div className="lg:col-span-6 text-center lg:text-left">
           <Reveal variant="up">
-            <p className="eyebrow">Reset Session Booking</p>
+            <p className="eyebrow justify-center lg:justify-start inline-flex lg:flex">Reset Session Booking</p>
           </Reveal>
           <Reveal variant="up" delay={80}>
             <h2 className="mt-4 text-3xl sm:text-4xl lg:text-[2.85rem] font-semibold text-white leading-[1.05] tracking-tight">

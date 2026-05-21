@@ -52,9 +52,9 @@ export function ForProfessionals() {
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14">
-          <div className="lg:col-span-5">
+          <div className="lg:col-span-5 text-center lg:text-left">
             <Reveal variant="up">
-              <p className="eyebrow">For Clinic Owners & Longevity Pros</p>
+              <p className="eyebrow justify-center lg:justify-start inline-flex lg:flex">For Clinic Owners & Longevity Pros</p>
             </Reveal>
             <Reveal variant="up" delay={80}>
               <h2 className="mt-4 text-3xl sm:text-4xl lg:text-[2.65rem] font-semibold text-white leading-[1.05] tracking-tight">
@@ -65,7 +65,7 @@ export function ForProfessionals() {
               </h2>
             </Reveal>
             <Reveal variant="up" delay={140}>
-              <p className="mt-5 text-[15px] sm:text-base text-[var(--color-text-muted)] leading-relaxed">
+              <p className="mt-5 text-[15px] sm:text-base text-[var(--color-text-muted)] leading-relaxed max-w-xl mx-auto lg:mx-0">
                 If you own or operate a wellness, recovery, or longevity space,
                 visit us at the booth to explore how Upper Aeon&apos;s reset
                 protocols, products, and live programming can plug into what
@@ -74,7 +74,7 @@ export function ForProfessionals() {
             </Reveal>
 
             <Reveal variant="up" delay={200}>
-              <ul className="mt-6 grid grid-cols-2 sm:grid-cols-1 gap-x-4 gap-y-2 text-[14px] text-[var(--color-text-muted)] font-light">
+              <ul className="mt-6 grid grid-cols-2 sm:grid-cols-1 gap-x-4 gap-y-2 text-[14px] text-[var(--color-text-muted)] font-light text-left max-w-sm mx-auto lg:mx-0">
                 {PARTNERS.map((p) => (
                   <li key={p} className="flex items-start gap-2">
                     <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[var(--color-aurum)] shrink-0" />
@@ -85,7 +85,7 @@ export function ForProfessionals() {
             </Reveal>
 
             <Reveal variant="up" delay={260}>
-              <div className="mt-8 flex flex-wrap gap-3">
+              <div className="mt-8 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                 <a href="#form" className="btn-gold text-[12px]">
                   Book a Partnership Conversation
                 </a>

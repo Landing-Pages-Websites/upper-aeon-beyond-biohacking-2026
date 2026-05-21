@@ -135,7 +135,7 @@ export function Products() {
                   </div>
                 </div>
 
-                <div className="lg:col-span-7">
+                <div className="lg:col-span-7 text-center lg:text-left">
                   <p className="text-[10px] uppercase tracking-[0.24em] font-semibold text-[var(--color-aurum)]">
                     {String(i + 1).padStart(2, "0")} / 04
                   </p>
@@ -148,7 +148,7 @@ export function Products() {
                   <p className="mt-4 text-[15px] text-[var(--color-text-muted)] leading-relaxed">
                     {p.body}
                   </p>
-                  <ul className="mt-5 grid grid-cols-2 gap-x-5 gap-y-2 text-[13px] text-[var(--color-text)] font-light">
+                  <ul className="mt-5 grid grid-cols-2 gap-x-5 gap-y-2 text-[13px] text-[var(--color-text)] font-light text-left max-w-md mx-auto lg:mx-0">
                     {p.benefits.map((b) => (
                       <li key={b} className="flex items-start gap-2">
                         <span className="mt-1.5 w-1 h-1 rounded-full bg-[var(--color-aurum)] shrink-0" />
@@ -163,7 +163,7 @@ export function Products() {
                     {p.bestFor}
                   </p>
 
-                  <div className="mt-6 flex flex-wrap items-center gap-3">
+                  <div className="mt-6 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                     <a href="#form" className="btn-primary text-[12px]">
                       Try It at the Booth
                     </a>

@@ -85,9 +85,9 @@ export function WhyThisStack() {
       />
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="grid lg:grid-cols-12 gap-10 lg:gap-14 items-start">
-          <div className="lg:col-span-5 lg:sticky lg:top-28">
+          <div className="lg:col-span-5 lg:sticky lg:top-28 text-center lg:text-left">
             <Reveal variant="up">
-              <p className="eyebrow">Why This Stack Works</p>
+              <p className="eyebrow justify-center lg:justify-start inline-flex lg:flex">Why This Stack Works</p>
             </Reveal>
             <Reveal variant="up" delay={80}>
               <h2 className="mt-4 text-3xl sm:text-4xl lg:text-[2.85rem] font-semibold text-white leading-[1.05] tracking-tight">
@@ -98,7 +98,7 @@ export function WhyThisStack() {
               </h2>
             </Reveal>
             <Reveal variant="up" delay={140}>
-              <p className="mt-5 text-[15px] sm:text-base text-[var(--color-text-muted)] leading-relaxed">
+              <p className="mt-5 text-[15px] sm:text-base text-[var(--color-text-muted)] leading-relaxed max-w-xl mx-auto lg:mx-0">
                 Each modality is a lever. Layered in sequence — light into
                 sound into vibration into breath, with compounds and
                 environment doing the rest — you get a measurable shift in
@@ -106,7 +106,7 @@ export function WhyThisStack() {
               </p>
             </Reveal>
             <Reveal variant="up" delay={200}>
-              <div className="mt-7 flex flex-wrap gap-3">
+              <div className="mt-7 flex flex-wrap items-center justify-center lg:justify-start gap-3">
                 <a href="#form" className="btn-primary text-[12px]">
                   Book Your Reset
                 </a>

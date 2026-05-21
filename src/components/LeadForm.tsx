@@ -253,16 +253,10 @@ export function LeadForm({
   // ─── Success state ───
   if (success) {
     return (
-      <div
-        className={`relative rounded-2xl p-8 sm:p-10 overflow-hidden ${
-          variant === "hero"
-            ? "card-dark-elev"
-            : "card-dark-elev"
-        }`}
-      >
+      <div className="relative rounded-2xl p-8 sm:p-10 overflow-hidden card-dark-elev glow-border">
         <div className="absolute inset-0 pointer-events-none aurora-violet opacity-60" />
         <div className="relative flex flex-col items-center text-center">
-          <div className="w-16 h-16 rounded-full bg-[var(--color-violet)]/20 border border-[var(--color-violet)]/45 flex items-center justify-center mb-5">
+          <div className="w-16 h-16 rounded-full bg-[var(--color-violet)]/20 border border-[var(--color-violet)]/45 flex items-center justify-center mb-5 animate-pulse-soft">
             <svg
               className="w-8 h-8 text-[var(--color-violet-light)]"
               viewBox="0 0 24 24"
@@ -304,13 +298,14 @@ export function LeadForm({
       ref={formRef}
       onSubmit={handleNativeSubmit}
       noValidate
-      className={`relative overflow-hidden rounded-2xl p-6 sm:p-8 ${
-        variant === "hero" ? "card-dark-elev" : "card-dark-elev"
-      }`}
+      className={`relative overflow-hidden rounded-2xl p-6 sm:p-8 card-dark-elev glow-border`}
       aria-describedby={status === "error" && errorMessage ? errId("form") : undefined}
     >
-      <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full pointer-events-none"
+      <div className="absolute -top-20 -right-20 w-60 h-60 rounded-full pointer-events-none animate-pulse-soft"
            style={{ background: "radial-gradient(circle, rgba(115,84,230,0.35), transparent 65%)" }}
+           aria-hidden="true" />
+      <div className="absolute -bottom-24 -left-24 w-56 h-56 rounded-full pointer-events-none animate-pulse-soft"
+           style={{ background: "radial-gradient(circle, rgba(255,77,213,0.22), transparent 65%)", animationDelay: "1.6s" }}
            aria-hidden="true" />
 
       {(headline || subhead) && (
